@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio JS Arrays</title>
+</head>
+<body>
+    <h1>Arrays JS, Lucas Vázquez García</h1>
+    <h2>Ejercicio 2</h2>
+    <p id="ejercicio1"></p>
+    <script>
+        let dias_semana = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado",]
+        let numero = parseInt(prompt("Introduce el numero de la semana: "))
+
+        if (numero >= 0 && numero <7) {
+          document.getElementById("ejercicio1").innerHTML = "Es " + dias_semana[numero].toLowerCase() + ".";
+        }
+        else {
+            document.getElementById("ejercicio1").innerHTML = "Se debe introducir un valor entre el 0 y el 6."
+        };
+    </script>
+
+    <h2>Ejercicio 2</h2>
+    <p id="ejercicio2"></p>
+    <script>
+        let booelano = ["Verdadero","Falso"]
+        let numero_user = parseInt(prompt("Introduce un número del 0 al 9"))
+        if (numero_user >= 0 && numero_user< 10){
+            alert(booelano[0]);
+        }
+        else {
+            alert(booelano[1]);
+        };
+    </script>
+
+    <h2>Ejercicio 3</h2>
+    <p id="ejercicio3"></p>
+    <script>
+        let numeros_suma = [2,3,4,5];
+
+        function suma_lista (array) {
+            let suma = 0
+            for (i = 0; i < array.length; i++) {
+                suma += array[i];
+            };
+            return suma;
+        };
+
+        document.getElementById("ejercicio3").innerHTML = suma_lista(numeros_suma)
+    </script>
+    
+    <h2>Ejercicio 4</h2>
+    <p id="ejercicio4"></p>
+    <script>
+        let array_num = [];
+        for (let i = 0;i < 3; i++) {
+            let numero_lista = parseInt(prompt("Introduce un numero para introducirlo en la lista: "))
+            while (isNaN(numero_lista)) {
+                numero_lista = parseInt(prompt("Error, diga un número: "))
+            }
+            array_num.push(numero_lista)
+        };
+
+        function es_par (lista) {
+            let contador_pares = 0;
+            for (let i = 0; i < lista.length;i++) {
+                if (lista[i] % 2 == 0) {
+                    contador_pares += 1;
+                }
+
+            }
+            return contador_pares
+        };
+
+        function es_impar (lista) {
+            let contador_impares = 0;
+            for (let i = 0; i < lista.length;i++) {
+               if (lista[i] % 2 != 0) {
+                   contador_impares += 1;
+               };           
+            };
+            return contador_impares
+        };
+
+        document.getElementById("ejercicio4").innerHTML = "La lista: " + array_num + "<br>" +  "Numeros pares: " + es_par(array_num) + "<br>" + "Numeros impares: " + es_impar(array_num);
+    </script>
+    <h2>Ejercicio 5</h2>
+    <p id="ejercicio5"></p>
+    <script>
+        let array_numerico = [1,2,3,4,5,6]
+        function min_valor (array,valor) {
+            valor_min = array[0];
+            menor_indice = 0;
+            for (let i = 0; i < array.length; i++) {
+                if (array [i] < valor_min) {
+                    valor_min = array [i];
+                    menor_indice = i; 
+                }
+            }
+            
+            if (valor.toLowerCase() == "v") {
+                return "Valor minimo: " + valor_min + ".";
+            }
+            else if (valor.toLowerCase() == "i") {
+                return "Indice minimo: " + menor_indice + ".";
+            };
+        };
+
+        document.getElementById("ejercicio5").innerHTML = min_valor(array_numerico,"i");
+        
+    </script>
+
+    <h2>Ejercicio 6</h2>
+    <p id="ejercicio6"></p>
+    <script>
+        array_letras = ["a","g","e","t","d"];
+        
+        function analiza_letras (letra,lista) {
+            for (let i = 0; i < lista.length; i++) {
+                if (lista[i] == letra.toLowerCase()) {
+                    return true;
+                }
+                return false;
+            };   
+        };
+
+        document.getElementById("ejercicio6").innerHTML = analiza_letras ("b",array_letras);
+
+    </script>
+
+    <h2>Ejercicio 7</h2>
+    <p id="ejercicio7"></p>
+    <script>
+        let vocales = ["a","e","i","o","u"]
+        function es_vocal (letra) {
+            for (let i = 0; i < letra.length; i++) {
+                if (letra[i].toLowerCase() == vocales[i]) {
+                    return true;
+                }
+                return false;
+            }
+        }
+        document.getElementById("ejercicio7").innerHTML = es_vocal("a");
+    </script>
+
+    <h2>Ejercicio 8</h2>
+    <p id="ejercicio8"></p>
+    <script>
+        let colores = ["rojo","amarillo","azul","verde"];
+        function cadena_lista (lista) {
+            let cadena = ""
+            for (let i = 0; i < lista.length;i++) {
+                cadena+=lista[i];
+                if (i < lista.length - 1) {
+                    cadena += "-";
+                };
+            };
+            return cadena;
+        };
+        document.getElementById("ejercicio8").innerHTML = cadena_lista (colores);
+    </script>
+
+    <h2>Ejercicio 9</h2>
+    <p id="ejercicio9"></p>
+    <script>
+        let datos_servicio = [["lunes","María"],["martes","Luis"],["miércoles","Antonia"],["jueves","Pedro"],["viernes","Marisa"]];
+        
+        function asignacion (lista,dia_semana) {
+            for (lista_interna of lista) {
+                if (lista_interna[0] == dia_semana.toLowerCase()) {
+                    return "Hoy se encarga: " + lista_interna[1] + ".";
+                }
+            };
+            return "Error, día de la semana no válido.";
+        };
+            
+        document.getElementById("ejercicio9").innerHTML = asignacion(datos_servicio,"Lunes")
+    </script>
+
+    <h2>Ejercicio 10</h2>
+    <p id="ejercicio10"></p>
+    <script>
+        let productos = [["monitor","200€"],["teclado","20€"],["ratón","10€"]]
+        function pedir_precio (lista,producto) {
+            for (lista_i of lista) {
+                if (lista_i[0] == producto.toLowerCase()) {
+                    return "El precio de " + lista_i [0] + " es " + lista_i[1] + ".";
+                };
+            }; 
+            return "Error, producto no encontrado"
+        };
+
+        document.getElementById("ejercicio10").innerHTML = pedir_precio(productos,"monitor")
+    </script>
+</body>
+</html>
